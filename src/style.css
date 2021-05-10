@@ -1,0 +1,169 @@
+body {
+    font-family: serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: #c6e9f7;
+}
+
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 50px;
+}
+
+.shadow {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+
+.round {
+    background:white;
+    border-radius: 7px;
+}
+
+
+/* header */
+
+header {
+    width: 100%;
+    padding: 50px 0;
+}
+
+.header-img-wrapper {
+    width:auto;
+}
+
+.header-img {
+    margin: 0 auto;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.5); */
+}
+
+/* filter */
+
+.filter {
+    margin-right: 30px;
+    background:white;
+    border-radius: 7px;
+    width: 30%;
+}
+
+.filter-title {
+    padding:20px;
+}
+
+.filter-body{
+    display: flex;
+    flex-direction: column;
+    text-transform:initial;
+}
+
+.filter-body label{
+    width: 100%;
+    padding:10px 20px;
+    vertical-align: baseline;
+}
+
+.filter-body label:last-child {
+    padding-bottom: 20px;
+}
+
+.filter-body label:hover {
+    background:#c6e9f7;
+    cursor:pointer;
+}
+
+
+
+/* tickets */
+
+.tickets{
+    width: 70%;
+    }
+
+
+/* tickets filter*/
+
+
+.tickets-filter{
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.tickets-filter-item {
+    background:white;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    cursor:pointer;
+}
+
+.tickets-filter-item.active {
+background: rgb(46, 114, 134);
+color:white;
+
+}
+
+
+.tickets-filter-fast{
+    border-radius: 7px 0 0 7px;
+}
+
+.tickets-filter-cheap{
+    border-radius: 0 7px 7px 0;
+}
+
+
+/* tickets tickets */
+
+
+.ticket {
+    background:white;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+
+}
+
+.ticket-logo {
+max-height: 50px;
+}
+
+.ticket-logo img {
+    margin-left: auto;
+}
+
+.ticket-price {
+    font-size: 30px;
+    color:blue;
+    line-height:1.5;
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.route-item{
+    width: 30%;
+}
+
+.ticket-route-title {
+    color:grey;
+padding-bottom: 10px;
+}
+
+.ticket-route-info {
+
+}
