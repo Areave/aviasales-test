@@ -1,118 +1,57 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import service from './service'
 import TransferFilter from './transferFilter'
 import Tickets from './tickets'
 
-export default class App extends Component {
+const App = () => {
 
-    state = {
-        transfer: [],
-        ticketFilter: 'fast'
-    }
-
-    tickets;
-
-
-    componentDidMount = () => {
-        this.loadData();
-
-    }
+    // create number array for storage of transfer info (1 is 1 transfer, 2-2, 3-3, -1 is all)
+    const [transfer, setTransfer] = useState([]);
+    // create string array for storage of filter ('fast' or 'cheap')
+    const [filter, setFilter] = useState('fast');
+    // create array for tickets to render
+    const [tickets, setTickets] = useState([])
 
 
-    componentDidUpdate = () => {
-        this.loadData();
-
-    }
-
-
-    loadData = () => {
-        console.log('load!!!')
-        service.getTick()
-            .then(data => this.filterData(data.tickets))
-            .then(tickets => { this.tickets = tickets })
-            .then(()=>{this.render()})
-    }
-
-    filterData = (data) => {
-        const { transfer, ticketFilter } = this.state;
-        const newData = data.filter(ticket => {
-
-            if (ticketFilter.includes(-1)) {
-                return true;
-            }
-
-            else {
-                const transfersTo = ticket.segments[0].stops.length;
-                const transfersBack = ticket.segments[1].stops.length;
-                if (ticketFilter.includes(transfersTo) && (ticketFilter.includes(transfersBack))) {
-                    return true;
-                }
-            }
-        })
-
-        newData.sort((prev, next) => {
-
-            if (transfer === 'cheap') {
-                return prev.price - next.price
-            }
-            else {
-                const prevDuration = prev.segments[0].duration + prev.segments[1].duration;
-                const nextDuration = next.segments[0].duration + next.segments[1].duration;
-                return prevDuration - nextDuration;
-            }
-
-        });
-
-        return newData.slice(0, 5);
-
-    }
-
-    changeTicketFilter = (event) => {
+    const changeTicketFilter = (event) => {
+        // take data from target and set it
         const target = event.target;
         const ticketFilter = target.getAttribute('data-filter');
-        this.setState({ ticketFilter });
+        setFilter(ticketFilter);
 
+        // change styles
         const items = document.querySelectorAll('.tickets-filter-item');
         items.forEach(item => {
             item.classList.remove('active');
         })
         target.classList.add('active');
-
     }
 
-    changeTransfer = (event) => {
-        let transfer;
-        const value = event.target.value;
+    const changeTransfer = (event) => {
+        // get value of transfers from checkboxes and set it
+        let newTransfer;
+        const value = +event.target.value;
         if (event.target.checked) {
-            transfer = [...this.state.transfer, value]
+            newTransfer = [...transfer, value]
         }
         else {
-            transfer = this.state.transfer.filter(item => item !== value)
+            newTransfer = transfer.filter(item => item !== value)
         }
-        this.setState({ transfer });
+        setTransfer(newTransfer);
     }
 
-    render() {
-
-        // this.loadData()
-
-        if (!this.tickets) {
-            return <h1> no tickets! </h1>
-        }
-
-        else {
-            console.log(this.state)
-            return (
-                <>
-                    <TransferFilter changeTransfer={this.changeTransfer} />
-                    <Tickets tickets={this.tickets} changeTicketFilter={this.changeTicketFilter} />
-                </>
-            )
-        }
+    useEffect(() => {
+        service.getTicketsData()
+            .then((data) => setTickets(service.filterData(transfer, filter, data.tickets)))
+    }, [filter, transfer])
 
 
-    }
-
-
+    return (
+        <>
+            <TransferFilter changeTransfer={changeTransfer} />
+            <Tickets tickets={tickets} changeTicketFilter={changeTicketFilter} />
+        </>
+    )
 }
 
+export default App

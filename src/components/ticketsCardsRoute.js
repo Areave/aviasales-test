@@ -3,24 +3,10 @@ import service from './service'
 
 export default class TicketsCardsRoute extends Component {
 
-
-    // date: "2021-06-08T03:13:00.000Z"
-    // destination: "MOW"
-    // duration: 836
-    // origin: "HKT"
-    // stops: (3)["IST", "HKG", "SIN"]
-
-
-
-
-
     render() {
-
-
 
         const {origin, destination, time, stringDuration, stringStops, stopsText,} = service.getProperTicketData(this.props.info);
  
-
         return (
             <>
                 <div className="ticket-route">
@@ -45,15 +31,7 @@ export default class TicketsCardsRoute extends Component {
                             {stringStops} </div>
                     </div>
 
-
                 </div>
-
-
-
-
-
-
-
 
             </>
         )

@@ -1,51 +1,42 @@
 import { Component } from 'react'
 import TicketsCardsRoute from './ticketsCardsRoute'
 import TicketsCardsHeader from './ticketsCardsHeader'
+import Error from './error'
 
 class Card extends Component {
 
     render() {
-        const {ticket} = this.props;
-        const {price, carrier} = this.props.ticket;
+
+        const { ticket } = this.props;
+        const { price, carrier } = ticket;
 
         return (
             <>
                 <div className="ticket round shadow">
                     <TicketsCardsHeader price={price} carrier={carrier} />
-                    <TicketsCardsRoute info={ticket.segments[0]}/>
-                    <TicketsCardsRoute info={ticket.segments[1]}/>
+                    <TicketsCardsRoute info={ticket.segments[0]} />
+                    <TicketsCardsRoute info={ticket.segments[1]} />
                 </div>
-
             </>
         )
     }
 }
 
 const returnCards = (View) => {
-
-    return class extends Component {        
+    return class extends Component {
 
         render() {
 
-            const tickets = this.props.tickets;
-            console.log(tickets[0].carrier)
-            const ticket = tickets[0];
+            const { tickets } = this.props;
 
-            const cards = tickets.map(ticket => <View ticket={ticket} />)
+            // if fetch go wrong here a cute error cat for customer
+            if (tickets === undefined) return [<Error />]
 
-            
+            const cards = (tickets.length) ? tickets.map((ticket, index) => <View ticket={ticket} key={index}/>) : null
 
-            // const compArray = [<View ticket={ticket} />, <View />, <View />, <View />];
-        
-                return cards
-                // return <View/>
-         
+            return cards
         }
-
-
     }
-
-
 }
 
 export default returnCards(Card)
