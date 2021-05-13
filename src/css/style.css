@@ -1,0 +1,249 @@
+body {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color:#4A4A4A;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: #F3F7FA;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 103px;
+}
+
+.shadow {
+    box-shadow:0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.round {
+    background:white;
+    border-radius: 5px;
+}
+
+/* header */
+
+header {
+    width: 100%;
+    padding: 35px 0;
+}
+
+.header-img-wrapper {
+    width:auto;
+}
+
+.header-img {
+    margin: 0 auto;
+}
+
+
+/* filter */
+
+.filter {
+    margin-right: 20px;
+    width: 30%;
+    max-width: 232px;
+}
+
+.filter-title {
+    padding:20px;
+}
+
+.filter-body{
+    display: flex;
+    flex-direction: column;
+    text-transform:initial;    
+}
+
+.filter-body label:last-child {
+    padding-bottom: 20px;
+}
+
+.filter-body label:hover {
+    cursor:pointer;
+}
+
+
+.filter-body input {
+    position: absolute;
+    left: -9999px;
+}
+
+.filter-body input +label {
+    display: inline-block;
+    position: relative;
+    padding: 10px 20px 10px 50px;
+    line-height: 20px;
+    cursor: pointer;
+    vertical-align: baseline;
+    font-weight: 400;
+font-size: 13px;
+line-height: 20px;
+}
+
+.filter-body input +label::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 11px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #9ABBCE;
+    border-radius: 2px;
+}
+
+
+.filter-body input +label::after {
+    content: "";
+    position: absolute;
+    transition: all 0.2s ease;
+    left: 24px;
+    top: 15px;
+    width: 12px;
+    height: 8px;
+    border-radius: 1px;
+    border-left: 2px solid #2196F3;
+    border-bottom: 2px solid #2196F3;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+
+
+input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+
+input[type="checkbox"]:checked + label:before {
+    border: 2px solid #2196F3;
+}
+
+
+
+/* tickets */
+
+.tickets{
+    width: 70%;
+    max-width: 502px;
+    }
+
+
+/* tickets filter*/
+
+
+.tickets-filter{
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.tickets-filter-item {
+    background:white;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    cursor:pointer;
+}
+
+.tickets-filter-item.active {
+background: #2196F3;
+color:white;
+
+}
+
+
+.tickets-filter-fast{
+    border-radius: 5px 0 0 5px;
+}
+
+.tickets-filter-cheap{
+    border-radius: 0 5px 5px 0;
+}
+
+
+
+/* tickets tickets */
+
+
+.ticket {
+    background:white;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.ticket-logo {
+max-height: 36px;
+}
+
+.ticket-logo img {
+    margin-left: auto;
+}
+
+.ticket-price {
+    font-size: 24px;
+    line-height: 38px;
+    color:#2196F3;
+
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.route-item{
+    width: 30%;
+}
+
+.ticket-route-title {
+    color: #A0B0B9;
+    font-size: 12px;
+line-height: 18px;
+padding-bottom: 2px;
+}
+
+.ticket-route-info {
+    font-size: 14px;
+    line-height: 21px;    
+    color: #4A4A4A;
+}
+
+.ticket-route:last-child {
+    padding-bottom: 0;
+}
+
+/* error */
+
+.error {
+    width: 100%;
+    padding:25px;
+    text-transform: initial;
+    text-align: center;
+}
+
+.error-title{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.error-desc{
+    font-style: 15px;
+}
+
+.error-picture {
+    display: block;
+    margin: 0 auto;
+}

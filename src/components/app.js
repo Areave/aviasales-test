@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import service from './service'
 import TransferFilter from './transferFilter'
 import Tickets from './tickets'
+import Header from './header'
 
 const App = () => {
 
@@ -47,10 +48,15 @@ const App = () => {
 
 
     return (
-        <>
-            <TransferFilter changeTransfer={changeTransfer} />
-            <Tickets tickets={tickets} changeTicketFilter={changeTicketFilter} />
-        </>
+
+        <main>
+            <Header />
+            <div className="main">
+                <TransferFilter changeTransfer={changeTransfer} />
+                <Tickets tickets={tickets} changeTicketFilter={changeTicketFilter} />
+            </div>
+        </main >
+
     )
 }
 

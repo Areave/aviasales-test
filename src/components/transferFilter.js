@@ -12,11 +12,11 @@ export default class TransferFilter extends Component{
                         <h3>Количество пересадок</h3>
                     </div>
                     <div className="filter-body">
-                        <label><input type="checkbox" onChange={changeTransfer} name="checkbox" value="-1" />Все</label>
-                        <label><input type="checkbox" onChange={changeTransfer} name="checkbox" value="0" />Без пересадок</label>
-                        <label><input type="checkbox" onChange={changeTransfer}name="checkbox" value="1" />1 пересадка</label>
-                        <label><input type="checkbox" onChange={changeTransfer} name="checkbox" value="2" />2 пересадки</label>
-                        <label><input type="checkbox" onChange={changeTransfer} name="checkbox" value="3" />3 пересадки</label>
+                        <input type="checkbox" onChange={changeTransfer} name="checkbox"  id='label1' value="-1" /><label htmlFor='label1'>Все</label>
+                        <input type="checkbox" onChange={changeTransfer} name="checkbox"  id='label2' value="0" /><label htmlFor='label2'>Без пересадок</label>
+                        <input type="checkbox" onChange={changeTransfer} name="checkbox"  id='label3' value="1" /><label htmlFor='label3'>1 пересадка</label>
+                        <input type="checkbox" onChange={changeTransfer} name="checkbox"  id='label4' value="2" /><label htmlFor='label4'>2 пересадки</label>
+                        <input type="checkbox" onChange={changeTransfer} name="checkbox"  id='label5' value="3" /><label htmlFor='label5'>3 пересадки</label>
                     </div>
                 </div>
             </>

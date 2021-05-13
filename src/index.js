@@ -1,6 +1,6 @@
-import './reset.css';
-import './fonts.css';
-import './style.css';
+import './css/reset.css';
+import './css/fonts.css';
+import './css/style.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
